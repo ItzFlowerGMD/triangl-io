@@ -1,0 +1,32 @@
+const colors = {
+	teal: "#7ad3db",
+	lgreen: "#b9e87e",
+	orange: "#e7896d",
+	yellow: "#fdf380",
+	lavender: "#b58efd",
+	aqua: "#7adbba",
+	pink: "#ef99c3",
+	vlgrey: "#e8ebf7",
+	lgrey: "#a4a4ad",
+	guiwhite: "#ffffff",
+	black: "#484848",
+	blue: "#3ca4cb",
+	green: "#8abc3f",
+	red: "#e03e41",
+	gold: "#efc74b",
+	purple: "#8d6adf",
+	magenta: "#cc669c",
+	grey: "#a7a7af",
+	dgrey: "#726f6f",
+	white: "#dbdbdb",
+	guiblack: "#000000",
+	mustard: "#c49608",
+	tangerine: "#ec7b0f",
+	brown: "#895918",
+	cyan: "#13808e",
+	innerbackground: "#2a2a2a",
+	outerbackground: "#101010",
+	blend: 25
+}
+
+export { colors }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Goofy Arras</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="./style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"></link>
+		<link rel="icon" type="image/x-icon" href="./favicon/favicon.ico">
+		<link rel="icon" type="image/png" href="./favicon/favicon.png">
+		<body>
+			<canvas id="gameCanvas"></canvas>
+			<input id="chatInput" placeholder="Enter message" maxlength="64"></input>
+			<div id="titleBg">
+				<img id="titleIcon" src="./res/titleIcon.png" width="100px"></img>
+				<b>Goofy Arras</b>
+				<img id="titleIcon" src="./res/titleIcon.png" width="100px"></img>
+				<p id="serverName">Server: </p>
+				<br>
+				<input id="nameInput" placeholder="Enter name" maxlength="20"></input><br>
+				<input id="tokenInput" type="password" placeholder="Enter token" maxlength="50"></input><br>
+				<button id="startBtn">
+					<i>Play</i>
+				</button>
+			</div>
+			<script type="module" src="./lib/protocol.js"></script>
+			<script type="module" src="./lib/colors.js"></script>
+			<script type="module" src="./main.js"></script>
+		</body>
+	</head>
+</html>

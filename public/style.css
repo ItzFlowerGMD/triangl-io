@@ -1,0 +1,106 @@
+html, body {
+	margin: 0;
+	overflow: hidden;
+}
+
+#gameCanvas {
+	width: 100%;
+	background-color: #000000;
+	position: absolute;
+	background-image: url("./res/backgroundTile.png");
+}
+
+#titleBg {
+	position: absolute;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	background: rgb(230,230,230);
+	border-radius: 20px;
+	height: 42%;
+	text-align: center;
+	left: 25%;
+	top: 5%;
+	transition: top 2s ease-in;
+}
+
+#tokenInput {
+	margin: auto;
+	top: 0%;
+	width: 50%;
+	height: 7%;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.5);
+	border: 3px solid black;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#nameInput {
+	margin: auto;
+	top: -5%;
+	width: 35%;
+	height: 10%;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.5);
+	border: 3px solid black;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#startBtn {
+	top: 5%;
+	width: 40%;
+	height: 15%;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	background: rgb(122,219,186);
+	border: 3px solid black;
+	box-sizing: border-box;
+	text-align: center;
+	transition: background 0.5s;
+}
+#startBtn:hover {
+	background: rgb(200,200,200);
+	cursor: pointer;
+	top: 6%;
+}
+
+#chatInput {
+	margin: auto;
+	left: 40%;
+	bottom: 60%;
+	width: 20%;
+	height: 3%;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+	border-radius: 5px;
+	background: rgba(255,255,255,0.5);
+	border: 3px solid black;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#serverName {
+	position: relative;
+}
+
+b {
+	font-family: "Ubuntu";
+	font-size: 60px;
+}
+
+p {
+	font-family: "Ubuntu";
+	font-size: 20px;
+}
