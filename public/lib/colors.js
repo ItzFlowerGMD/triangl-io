@@ -24,9 +24,9 @@ const colors = {
 	tangerine: "#ec7b0f",
 	brown: "#895918",
 	cyan: "#13808e",
-	innerbackground: "#2a2a2a",
-	outerbackground: "#101010",
-	blend: 25
+	innerbackground: "#c0c0c0",
+	outerbackground: "#909090",
+	blend: 15
 }
 
 export { colors }

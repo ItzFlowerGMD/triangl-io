@@ -225,8 +225,8 @@ function drawGrid(cellSize, endX, endY) {
 	for (let i = 0; i <= endX / cellSize; i++) {
 		let x = i * cellSize
 		ctx.beginPath()
-		ctx.lineWidth = 1
-		ctx.strokeStyle = darkenColor(colors.innerbackground, 60)
+		ctx.lineWidth = 1.5
+		ctx.strokeStyle = darkenColor(colors.innerbackground, colors.blend)
 		ctx.moveTo(x, 0)
 		ctx.lineTo(x, endY)
 		ctx.stroke()
@@ -236,8 +236,8 @@ function drawGrid(cellSize, endX, endY) {
 	for (let i = 0; i <= endY / cellSize; i++) {
 		let y = i * cellSize
 		ctx.beginPath()
-		ctx.lineWidth = 1
-		ctx.strokeStyle = darkenColor(colors.innerbackground, 60)
+		ctx.lineWidth = 1.5
+		ctx.strokeStyle = darkenColor(colors.innerbackground, colors.blend)
 		ctx.moveTo(0, y)
 		ctx.lineTo(endX, y)
 		ctx.stroke()
@@ -694,7 +694,7 @@ function startGame() {
 				drawText(skill.name, 110, initY + (i * 20), 16, "center", true, 2)
 				drawText(`[${i + 1}]`, 220, initY + (i * 20), 16, "left", true, 2)
 			}
-			if (clientInfo.skillPoints > 0) drawText(`x${clientInfo.skillPoints}`, 220, windowHeight - 200, 25, "left", true, 1)
+			if (clientInfo.skillPoints > 0) drawText(`x${clientInfo.skillPoints}`, 220, windowHeight - 200, 25, "left", true, 2)
 		}
 		
 		// draw chat messages

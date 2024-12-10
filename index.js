@@ -23,11 +23,20 @@ fs.writeFile("./public/lib/mockups.json", JSON.stringify(mockups), "utf8", funct
 )
 
 let entityLoop = setInterval(() => {
-	// update all entities
-	for (let entity of global.entities) {
-		entity.update()
-		for (let gun of entity.guns) {
-			gun.reload()
+	
+	for (let socket of global.sockets) {
+		if (socket.entity) {
+			if (socket.inputs.keyboard.KeyW) socket.entity.speed.y -= socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
+			if (socket.inputs.keyboard.KeyA) socket.entity.speed.x -= socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
+			if (socket.inputs.keyboard.KeyS) socket.entity.speed.y += socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
+			if (socket.inputs.keyboard.KeyD) socket.entity.speed.x += socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
+			if (socket.inputs.mouse.left) {
+				for (let gun of socket.entity.guns) {
+					gun.fire()
+				}
+			}
+			if (socket.inputs.mouse.pos.x) socket.entity.target.x = socket.inputs.mouse.pos.x
+			if (socket.inputs.mouse.pos.y) socket.entity.target.y = socket.inputs.mouse.pos.y
 		}
 	}
 	
@@ -42,6 +51,14 @@ let entityLoop = setInterval(() => {
 		)
 		food.define(global.food_types[rand])
 		global.food_amount++
+	}
+	
+	// update all entities
+	for (let entity of global.entities) {
+		entity.update()
+		for (let gun of entity.guns) {
+			gun.reload()
+		}
 	}
 })
 
@@ -74,24 +91,6 @@ let packetLoop = setInterval(() => {
 			}
 			entities = protocol.encode(entities)
 			socket.send(entities)
-			
-			// process input packet
-			//socket.lastInputs = socket.inputs
-				if (socket.inputs.keyboard.KeyW) socket.entity.speed.y -= socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
-				if (socket.inputs.keyboard.KeyA) socket.entity.speed.x -= socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
-				if (socket.inputs.keyboard.KeyS) socket.entity.speed.y += socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
-				if (socket.inputs.keyboard.KeyD) socket.entity.speed.x += socket.entity.body.accel + (socket.entity.skills.speed * 0.0002)
-				if (socket.inputs.mouse.left) {
-					for (let gun of socket.entity.guns) {
-						gun.fire()
-					}
-				}
-				if (socket.inputs.mouse.pos.x) socket.entity.target.x = socket.inputs.mouse.pos.x
-				if (socket.inputs.mouse.pos.y) socket.entity.target.y = socket.inputs.mouse.pos.y
-
-			// calculate socket inactivity
-			//if (socket.inputs === socket.lastInputs) socket.inactivity++
-			//if (socket.inactivity > 1000) socket.kick("AFK Timeout")
 			
 			socket.talk(
 				"c", // camera packet
@@ -132,7 +131,7 @@ let packetLoop = setInterval(() => {
 			}
 		}
 	}
-}, 20)
+})
 
 let socketIndex = 0
 let chatMessages = []
